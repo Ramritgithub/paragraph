@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+   
+    <meta harset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+     <title>pharagraph</title>
+    <link rel="stylesheet" href="style.css">
+    
+    </head>
+  <body>   
+      
+     <div class="first">
+      <div class="head">Chapter XIII<br><br>
+     <h1> Query-By-Structure <br>Approach for the Web</h1>
+    <h6>  Michael Johnson <br>Madonna University, USA<br><p></p>Farshad Fotouhi<br>
+Wayne State University, USA<br><p></p>Sorin Draghici<br>Wayne State University, USA</h6></div>
+         
+          <p class="b">ABSTRACT<br> </p> 
+         
+ <p> <i> &nbsp;&nbsp;&nbsp;This chapter presents three systems that incorporate document structure information
+into a search of the Web. These systems extend existing Web searches by allowing the
+user to request documents containing not only specific search words, but also to specify
+that documents be of a certain type. In addition to being able to search a local database
+(DB), all three systems are capable of dynamically querying the Web. Each system
+applies a query-by-structure approach that captures and utilizes structure information
+as well as content during a query of the Web. Two of the systems also employ neural
+networks (NNs) to organize the information based on relevancy of both the content and
+structure. These systems utilize a supervised Hamming NN and an unsupervised
+competitive NN, respectively. Initial testing of these systems has shown promising
+results when compared to straight keyword searches.</i><p>
+         
+         <p class="b">INTRODUCTION</p><br>
+      &nbsp;&nbsp;&nbsp; The vast amount of information available to the users of the World Wide Web is
+overwhelming. However, what is even more overwhelming for users is trying to find the
+particular information they are looking for. Search engines have been created to assist.<p></p>
+         
+      &nbsp;&nbsp;   in this process, but a typical keyword search using a search engine can still result in
+hundreds of thousands of different relevant Web documents. Savvy search engine
+users have learned to combine keywords and phrases with logical Boolean operators to
+pair down the number of matched Web pages. Unfortunately, results from these searches
+can still yield a significant number of pages that must then be viewed individually to
+         determine whether they contain the content the user is interested in or not<p> </div><br>
+      <div class="first">
+         &nbsp;&nbsp; Search engines support keyword searches by utilizing spiders or webots to scan
+the textual content of Web documents, and then indexing and storing the content in a
+database for future user queries. The stored information typically consists of the
+document URL, various keywords or phrases, and possibly a brief description of the Web
+page. However, these search engines maintain very little, if any, information about the
+context in which the text of the Web page is presented. In other words, a search engine
+might be able to identify that a particular keyword was used in the title of the Web page
+or a phrase within the anchor tags. But, it would not distinguish between that same word
+or phrase being used in a paragraph, heading, or as alternate text for an image. However,
+the way in which text is presented in a Web page plays a significant role in the importance
+of that text. For example, a Web page designer will usually emphasize particularly
+important words, phrases, or names. By enabling a search engine to capture how text is
+presented, and subsequently, allowing the users of the search engine to query based on
+some presentation criteria, the performance of a search can be greatly enhanced.<p></p> Since
+search engines that utilize spiders already scan the entire text of a Web page, it is a simple
+modification to incorporate a mechanism to identify the context in which the text is
+presented.
+          
+
+      &nbsp;&nbsp; awareness of the difficulties of trying to merge the instructional and student
+services policies of 14 colleges. CECC didn’t even know how to go about
+improving its awareness and how to best work with the colleges. Every
+activity the CECC management team undertook to educate these colleges
+about the workings of the centralized management team and the program
+policies and procedures became an activity that educated the management
+team. CECC soon recognized that each college, while part of the same system,
+still had individual policies and processes that had to be taken into account<br>
+      &nbsp;&nbsp;       Over time, intra and intercollegiate teams and committees have been
+created to facilitate governance and management of the program and to
+deliver high-quality instructional and student services.<p></p> These committees and
+teams allow all the member colleges to have a voice in guiding program
+management and the future direction. The committees and teams strive to be
+inclusive and often call upon subject matter experts from other parts of the
+college(s) to solve problems or create new online educational approaches.
+These teams and committees act as connecting agents back to their college
+constituents and improve information flow between the constituents and the
+management team.       
+          
+  &nbsp;&nbsp; CCCOnline is a unique consortial approach to distance education created
+in September 1997 by the Community Colleges of Colorado (hereinafter
+referred to as “CC of C”). CC of C oversees 13 NCA-accredited Colorado
+community colleges and one nonaccredited community college called Colorado Electronic Community College (CECC). Together, these colleges serve
+almost 250,000 Colorado students annually.<p>Motivation for this type of modification can best be described by illustration.
+Consider the following examples:</p> </div><br>
+      <div class="first">
+    &nbsp;&nbsp;• A user wants to find Web pages containing images of Princess Diana. Using a
+typical keyword search, any Web page that mentions Princess Diana will be
+returned in the results of the request. However, by including presentation tags—
+namely, the HTML img tag—as part of the search, the user can specify that she is
+only interested in Web pages that contain “Princess Diana” and an image. Granted,
+this particular search would result in any page mentioning Diana that contains an
+image, regardless of whether the image was of Diana or not. However, many Web
+page designers include a brief textual description of an image using the alt attribute
+of the image tag. With this added knowledge, the user could specify that the
+content “Princess Diana” should appear as part of the alt attribute within the image
+tag<P>
+      
+   &nbsp;&nbsp;• There are literally thousands of online publications available today on the Web.
+Most of these publications use a very rigid style for presenting their articles. For
+example, article authors are usually distinguished by having their name placed in
+a particular location within the document or highlighted with a specific font type,
+style, size, or color. If a user is interested in finding articles that were written by
+a particular author, a simple keyword search could yield many irrelevant Web
+pages, particularly if the author has a common name, is famous, or even has a
+famous namesake. However, a search that specifies that a particular name be
+presented in a particular way could greatly improve the results.<p>
+            &nbsp;&nbsp; These two examples clearly illustrate how a user can significantly improve his or her
+search for particular Web document content by using presentation knowledge when
+performing a search.<p>
+   &nbsp;&nbsp;  This chapter will present three systems that have been designed to incorporate
+document structure into a search of the Web. Each of these systems applies a queryby-structure approach that captures and utilizes structure (presentation) information as
+well as content during a distributed query of the Web. In addition, two of the systems
+employ neural networks to organize the information based on relevancy of not only the
+content but the structure of the document as well. First, however, it would be worthwhile
+          to provide a little background into various systems and approaches related to the queryby-structure systems presented in this chapter.</p></P><br>
+      <p class="b">BACKGROUND</p>
+ &nbsp;&nbsp;<p>The following sections look into various systems and approaches used by others
+to study the areas of Web searching, Web querying, and the use of machine-learning
+techniques to perform Web searches. These systems and approaches are related in one
+way or another to various aspects of systems presented in the next section.</p></div><p><br>
+       <div class="first">
+      <p class="e">Web Search Engines <p>
+           &nbsp;&nbsp;Searching the Web involves utilizing one of the many search engines publicly
+available to perform keyword searches for documents cataloged by the search engine’s
+database. Popular World Wide Web search engines such as AltaVista (http://
+www.altavista.com) and Yahoo! (http://www.yahoo.com) allow users to search for Web
+pages by providing keywords. These keywords are then used to index the search
+engine’s database for URLs of relevant Web pages. Some search engines also utilize
+some sort of spider or webot to index the pages on the Web. These programs scan
+currently indexed pages to identify new pages. The newly identified pages are then
+cataloged and indexed within the search engine’s database. In addition, some search
+engines, such as HotBot (http://www.hotbot.com), allow the user to specify that the
+documents for which he is searching contain images, video, and/or Javascript code. One
+search engine that does utilize some structure information is the Google (http://
+www.google.com) search engine described below. However, most search engines utilize
+very little, if any, detailed structure information<p>Until recently, the Google search engine was relatively unknown to the general
+public. However, many in computer science academia have known about Google for much
+longer. This was primarily due to the exceptional research paper, “The Anatomy of a
+Large-Scale Hypertextual Web Search Engine” (Brin & Page, 1998), published on the
+inner workings of the Google search engine. Additionally, the Google search engine has
+been available for public use since the publication of this paper. Today, the Google
+search engine actually <i>powers </i>several other mainstream search engines, including<p>Google was initially constructed at Stanford University as a prototype large-scale
+search engine. According to the designers, the main goal of Google was to improve the</p>
+ &nbsp;&nbsp;quality of Web searches. The designers determined that it was necessary to provide
+tools that have a very high precision (number of relevant documents returned by the
+system), even at the expense of recall (number of relevant documents the system could
+return). Here, “relevant” was defined as only the very best documents, since there could
+be tens of thousands of slightly relevant documents. One thing that sets Google apart
+from other search engines is that, in addition to content, it makes use of the structure
+present in hypertext documents. In particular, two important features help the system
+to produce its high precision results. First, it makes use of the link structure of the Web
+to calculate a PageRank, or quality ranking, for each Web page. Second, Google utilizes
+anchor text to improve search results. These two features as well as a couple other
+features of note are discussed in greater detail in the following paragraphs.
+<p>
+ &nbsp;&nbsp;In traditional documentation, authors provide references or citations when referring to other individuals’ work in their document. However, hypertext documents offer
+the unique ability of actually being able to link directly to the cited source. PageRank
+uses a citation or link graph to determine an objective measure of a Web document’s
+importance. The idea is that when someone places a citation or link to another Web
+document within a page, he/she is indicating a level of importance to the linked document.
+Hence, pages can be ranked based on the number of pages that cite (link to) a given
+document, with the results being prioritized based on the number of pages that link to
+a given page. In addition, PageRank extends the results by not counting links from all
+pages equally and by normalizing by the number of links on a page. Formally, the authors
+    defined PageRank as follows.</p>
+      
+<i>Assuming page A has pages T1
+…Tn
+ that point to it (i.e. are citations), a
+parameter d which is a damping factor set between 0 and 1, and C(A) which
+is a count of the number of links going out of a page, the PageRank of page</i></div><br>
+       <div class="first">
+ &nbsp;&nbsp;<p>PR(A) = (1-d) + d(PR(T1
+)/C(T1
+) + … + PR(Tn
+)/C(Tn
+))<br><br>
+           
+     &nbsp;&nbsp;  From the formula above, it can be seen that a page will have a higher PageRank if
+there are several pages that link to it. But, maybe even more significant is the fact that
+the PageRank of the document that is providing the link is factored into the equation as
+well. As a result, a page that may have only one link to it could have a higher page rank
+than a page that has several citations, because the one link page is being referenced by
+a very <i>important page.</i> Intuitively this makes sense, for if a document has a direct link
+from say the Yahoo! homepage, this should be an indication that this page likely carries
+some importance.<p>
+         &nbsp;&nbsp;  The second factor in ranking of pages is the use of the text within the anchor tags.
+Google not only associates the text of the link with the page containing the link, but also
+with the page to which the link points. The advantage to doing this is that it captures
+more detailed information about a given page, as the text within the anchor tags may
+provide an even more accurate description of a Web page than the page itself. Finally,
+in addition to PageRank and the use of anchor text, Google maintains location information for all hits and makes extensive use of proximity in search. Google also keeps track
+of some visual presentation details, such as font size of words where words in a larger</p>
+          
+          
+          <br><p class="e"> &nbsp;&nbsp;Web Query Systems</p>Most search engines dynamically search the Web. However, these searches are
+typically done in the background. In other words, these search engines do not allow the
+user to directly query the Web. Querying the Web requires a Web-query system that
+locates documents by dynamically retrieving and scanning the documents during the
+query process. Although there may not exist any mainstream search engine that can
+directly query the World Wide Web, there actually has been a significant amount of
+research done in this area. In this section, three such systems are compared<p>
+       &nbsp;&nbsp;The first system utilizes a query language called WebSQL (Mendelzon, Mihaila, &
+Milo, 1996) designed specifically to query the Web. The system navigates the Web
+starting from a known URL. In addition, it can traverse multiple child links. However,
+other than the text contained within the anchor tags, no other tag (structure) information
+is utilized in their queries. WebLog (Lakshmanan, Sadri & Subramanian1996) is another
+language designed to directly query the Web. WebLog allows the user to incorporate
+some forms of presentation knowledge into the query through a structures called relinfons. However, utilizing rel-infons requires the user to have extensive knowledge of
+declarative logic concepts in order to write even the simplest of queries. In addition, the
+system does not use any type of catalog information, so every query requires a dynamic
+search of the appropriate Web documents. A third system that queries the Web is W3QS
+(Konopnicki & Shmueli, 1995). This system maintains the results of user queries in a
+database. In addition to the document content, specific node and link information
+relating to the document title and anchor tags is cataloged. Additionally, some
+presentation information such as HTML form elements is also maintained. Hence, this
+system does account for some types of document structure in its queries.</p>
+      
+
+       &nbsp;&nbsp;    to develop the initial 20 classes. Colleges that volunteered the initial faculty
+did so at their own expense, either paying the faculty overload fees or
+providing paid release time. The college presidents agreed that once the first
+degree was developed, all the colleges enrolling students in CCCOnline
+courses would jointly absorb future course development costs. Even those
+colleges where resistance to the consortial model was the highest were
+anxious to be contributors for fear that they might be left out of a potentially
+           successful program.</div><br>
+        
+    <div class="first">
+          <p class="b"> QUERY-BY-STRUCTURE SYSTEMS </p>
+      
+        &nbsp;&nbsp;  This section presents the CLaP (Fotouhi, Grosky, & Johnson, 1999) and the Neural
+Network Net Query-by-Structure systems (Johnson, Fotouhi, & Draghici, 2001). These
+systems have some features similar to those presented in the review in the previous
+section. In particular, all three systems are capable of dynamically querying the Web.
+In addition, each system can identify Web documents based on content. However, what
+sets these systems apart is there extensive use of document structure in the search
+process, hence the name query-by-structure.<p>
+      <p class="e"> CLaP </p>
+       &nbsp;&nbsp;  The CLaP system, which stands for Content, Link and Presentation, was designed
+in 1999 in an attempt to enhance Web searches by allowing the user to indicate that the
+desired documents contain not only specific keywords, but that those keywords bestructured and presented in a specific way. This was achieved by allowing the user to
+request that the content information appear within particular presentation (HTML) tags.
+The CLaP system allowed the user to issue queries on a locally maintained database of
+Web documents. However, the system also allowed the user to directly query the Web.
+Hence, not only was the user able to search for Web documents already cataloged by
+the CLaP system, but he or she could also initiate a dynamic search of the Web by
+denoting a specific starting URL. Initial testing of the CLaP system showed promising
+results. Comparisons between straight keyword searches and searches that also utilize
+presentation information led to significant reductions in the number of documents
+selected.<br>
+        
+ <p class="e"> CLaP System Overview </p>
+        The query process began with the user selecting a starting URL and various
+characteristics of interest, such as “all documents containing images, forms, and/or
+tables.” In addition, the user could select the content for which he or she was searching,
+and specifically request that it appear between a particular set of tags. The request was
+then transformed into a database query that was processed by the system. The user was
+able to specify that the request was to be processed locally, in which case the results
+(URLs of selected Web documents) were returned to the user. Additionally, the user
+could provide a starting URL and request that a dynamic query of the Web be performed
+to find the documents matching the user-specified criteria.<p>
+        <p class="e">CLaP Architecture </p>The CLaP system architecture was divided into three layers: User, Database, and
+WWW, as shown in Figure 1. In addition, each layer was composed of specific modules
+that performed various functions within the system. The Visual Interface module is the
+user interface for the CLaP system that allowed the user to enter his or her query via an
+HTML form (Figure 2). This form enabled the user to query based on several different
+HTML presentation tags including title, anchor, image, table, etc. The user could also
+search on various attributes for these tags, as well as for content within the tags. When
+the form was submitted, a program within the database layer processed the information
+and converted the user selection into a SQL query.</div><br>
+      <div class="first">
+          <i>Figure 1: CLaP system architecture.</i><p>
+      <img src="Screenshot%202024-02-07%20154954.png"><br>
+         <i> Figure 2: Visual Interface module.</i><p></p>
+       <img src="Screenshot%202024-02-07%20164241.png"><p>
+          The Interpreter module is the program described above whose function is to convert
+the user query into a standard SQL query. The Interpreter module directly interfaced with
+the SQL module and the URL extractor module. When the SQL module received a SQL
+query from the Interpreter module, it initiated the query on the Database module, which
+          will return the results to the user. In addition, the SQL module also interfaced with the</p></div>
+      <div class="first">
+           <p class="b"> Neural Network Net Query-by-Structure Systems Overview </p>
+         &nbsp;&nbsp;  Although similar, the systems developed utilize different types of neural networks:
+a supervised Hamming Network and an unsupervised Competitive Network (Hagan,
+Demuth, & Beale, 1996). The query process for both systems involves five steps (as
+shown in Figure 4).<p></p>Figure 4: Neural network query-by-structure process.<br>
+          <img src="Screenshot%202024-02-07%20165441.png"><p></p></div><br>
+
+
+ </body>
+</html>
